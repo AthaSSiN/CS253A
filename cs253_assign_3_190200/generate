@@ -1,0 +1,27 @@
+#!/bin/bash
+
+P=$1
+N=$2
+num_inputs=2
+
+if (( $N > 0 ))
+then
+    inputs=()
+    for (( j = 0; j < num_inputs; ++j))
+    do
+        inputs+=($(((((RANDOM<<15|RANDOM)<<15|RANDOM)>>13) - 2147483648)))
+    done
+    echo ${inputs[@]} > T
+fi
+
+for ((i = 0; i < $N - 1 ; i++))
+do
+    inputs=()
+    for (( j = 0; j < num_inputs; ++j))
+    do
+        inputs+=($(((((RANDOM<<15|RANDOM)<<15|RANDOM)>>13) - 2147483648)))
+    done
+    echo ${inputs[@]} >> T
+done
+
+echo "Test cases written to file T"

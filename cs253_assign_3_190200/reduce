@@ -1,0 +1,40 @@
+#!/bin/bash
+
+P=$1
+testFile=$2
+K=$3
+bin=(${P//./ })
+g++ -fprofile-arcs -ftest-coverage ${P} -o ${bin[0]}
+
+N=0
+len=0
+testCases=()
+oneHot=()
+
+tc_len=0
+
+while read line 
+do
+    echo $line | ./${bin[0]} &>> /dev/null
+    testCases+=($line)
+    gcov -o . -b -c -t ${bin[0]} > ${P}.gcov
+    while read branches
+    do
+        a=($branches)
+        if (( a[3] > 0 ))
+        then
+            oneHot+=(${a[3]})
+        else
+            oneHot+=(0)
+        fi
+    done < <(cat ${P}.gcov | grep -e ^branch)
+
+    if (( N == 0 ))
+    then
+        len=${#oneHot[@]}
+        tc_len=${#testCases[@]}
+    fi
+    (( N++ ))
+done < $testFile
+
+echo $N $tc_len $K $len ${testCases[@]} ${oneHot[@]} | ./algo_reduce

@@ -1,0 +1,12 @@
+STEPS FOR MAKING SCRIPT.SH
+
+1. retrieved a list of keys (state names from the file)
+2. retreived districts list of all states
+
+2. however, storing this list in a bash array was proving to be difficult,as the district names had spaces between the names of the words. So, a workaround for this that I used was to modify the internal field seperator (IFS) (https://en.wikipedia.org/wiki/Input_Field_Separators) to tabs, such that i can print the jq output as tab seperated values (tsv) which my bash array could easily split.
+
+3. Iterated over the states and their respective districts (which were not named "unknown") and found the number of total confirmed cases for each district.
+4. If the total confirmed cases was >= 5000, then found the number of recovered cases and total recovery rate for each district.
+5. For each state, found the district with max recovery rate, in such a way that if two districts have the same recovery rate (which is maximum), the district processed later will be displayed. As the recovery rate values were floating point, used the 'bc' command in bash to perform these calculations. The recovery rate percentages were rounded off to 2 decimal places.
+
+6. Wrote the names of states, district, confirmed cases and recovery rate into a csv file, only consisting of states which did not have "unknown" as the district name or only having districts with <5000 confirmed cases. The name of the csv file is processe_Covid_Data_190200.csv

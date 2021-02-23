@@ -1,0 +1,228 @@
+        -:    0:Source:test/P.cpp
+        -:    0:Graph:./P.gcno
+        -:    0:Data:./P.gcda
+        -:    0:Runs:1000
+        -:    1:#include <stdio.h>
+        -:    2:
+function main called 1000 returned 100% blocks executed 100%
+     1000:    3:int main()
+        -:    4:{
+        -:    5:    int a, b;
+     1000:    6:    scanf("%d %d", &a, &b);
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+     1000:    7:    if(a >= b)
+branch  0 taken 512 (fallthrough)
+branch  1 taken 488
+        -:    8:    {
+      512:    9:        printf("a, %d, is >= b\n", a);
+call    0 returned 512
+branch  1 taken 512 (fallthrough)
+branch  2 taken 0 (throw)
+      512:   10:        if(b > 0)
+branch  0 taken 137 (fallthrough)
+branch  1 taken 375
+      137:   11:            printf("b, %d, is positive\n", b);
+call    0 returned 137
+branch  1 taken 137 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   12:        else
+      375:   13:            printf("b, %d, is non-positive\n", b);
+call    0 returned 375
+branch  1 taken 375 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   14:    }
+        -:   15:    else
+        -:   16:    {
+      488:   17:        printf("b, %d, is > a\n", b);
+call    0 returned 488
+branch  1 taken 488 (fallthrough)
+branch  2 taken 0 (throw)
+      488:   18:        if(a < 0)
+branch  0 taken 361 (fallthrough)
+branch  1 taken 127
+      361:   19:            printf("a, %d, is negative\n", a);
+call    0 returned 361
+branch  1 taken 361 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   20:        else
+      127:   21:            printf("a, %d, is non-negative\n", a);
+call    0 returned 127
+branch  1 taken 127 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   22:    }
+        -:   23:
+     1000:   24:    if(a % 2 == 0)
+branch  0 taken 511 (fallthrough)
+branch  1 taken 489
+        -:   25:    {
+      511:   26:        if (b % 2 == 0)
+branch  0 taken 259 (fallthrough)
+branch  1 taken 252
+      259:   27:            printf("Both a and b are even\n");
+call    0 returned 259
+branch  1 taken 259 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   28:        else
+      252:   29:            printf("only a is even\n");
+call    0 returned 252
+branch  1 taken 252 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   30:    }
+      489:   31:    else if(a % 3 == 0)
+branch  0 taken 165 (fallthrough)
+branch  1 taken 324
+        -:   32:    {
+      165:   33:        if(b % 3 == 0)
+branch  0 taken 60 (fallthrough)
+branch  1 taken 105
+       60:   34:            printf("a mod 3==0, b mod 3==0\n");
+call    0 returned 60
+branch  1 taken 60 (fallthrough)
+branch  2 taken 0 (throw)
+      105:   35:        else if(b % 2 == 0)
+branch  0 taken 49 (fallthrough)
+branch  1 taken 56
+       49:   36:            printf("a mod 3==0, b mod 2==0\n");
+call    0 returned 49
+branch  1 taken 49 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   37:        else
+       56:   38:            printf("a mod 3==0, no idea about b");
+call    0 returned 56
+branch  1 taken 56 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   39:    }
+      324:   40:    else if(a % 5 == 0)
+branch  0 taken 73 (fallthrough)
+branch  1 taken 251
+        -:   41:    {
+       73:   42:        if(b % 5 == 0)
+branch  0 taken 18 (fallthrough)
+branch  1 taken 55
+       18:   43:            printf("a mod 5==0, b mod 5==0\n");
+call    0 returned 18
+branch  1 taken 18 (fallthrough)
+branch  2 taken 0 (throw)
+       55:   44:        else if(b % 4 == 0)
+branch  0 taken 12 (fallthrough)
+branch  1 taken 43
+       12:   45:            printf("a mod 5==0, b mod 4==0\n");
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
+branch  2 taken 0 (throw)
+       43:   46:        else if(b % 3 == 0)
+branch  0 taken 13 (fallthrough)
+branch  1 taken 30
+       13:   47:            printf("a mod 5==0, b mod 3==0\n");
+call    0 returned 13
+branch  1 taken 13 (fallthrough)
+branch  2 taken 0 (throw)
+       30:   48:        else if(b % 2 == 0)
+branch  0 taken 11 (fallthrough)
+branch  1 taken 19
+       11:   49:            printf("a mod 5==0, b mod 2==0\n");
+call    0 returned 11
+branch  1 taken 11 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   50:        else
+       19:   51:            printf("a mod 5==0, no idea about b");
+call    0 returned 19
+branch  1 taken 19 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   52:    }
+      251:   53:    else if(a % 7 == 0)
+branch  0 taken 29 (fallthrough)
+branch  1 taken 222
+        -:   54:    {
+       29:   55:        if (b % 7 == 0)
+branch  0 taken 6 (fallthrough)
+branch  1 taken 23
+        6:   56:            printf("a mod 7==0, b mod 7==0\n");
+call    0 returned 6
+branch  1 taken 6 (fallthrough)
+branch  2 taken 0 (throw)
+       23:   57:        else if(b % 6 == 0)
+branch  0 taken 5 (fallthrough)
+branch  1 taken 18
+        5:   58:            printf("a mod 7==0, b mod 6==0\n");
+call    0 returned 5
+branch  1 taken 5 (fallthrough)
+branch  2 taken 0 (throw)
+       18:   59:        else if(b % 5 == 0)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 17
+        1:   60:            printf("a mod 7==0, b mod 5==0\n");
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       17:   61:        else if(b % 4 == 0)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 16
+        1:   62:            printf("a mod 7==0, b mod 4==0\n");
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       16:   63:        else if(b % 3 == 0)
+branch  0 taken 3 (fallthrough)
+branch  1 taken 13
+        3:   64:            printf("a mod 7==0, b mod 3==0\n");
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+       13:   65:        else if(b % 2 == 0)
+branch  0 taken 3 (fallthrough)
+branch  1 taken 10
+        3:   66:            printf("a mod 7==0, b mod 2==0\n");
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   67:        else
+       10:   68:            printf("a mod 7==0, no idea about b");
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   69:    }
+      222:   70:    else if (b % 2 == 0)
+branch  0 taken 129 (fallthrough)
+branch  1 taken 93
+      129:   71:        printf("only b is even\n");
+call    0 returned 129
+branch  1 taken 129 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   72:    else
+       93:   73:        printf("both a and b are odd\n");
+call    0 returned 93
+branch  1 taken 93 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   74:
+     1000:   75:    if (a%11 == b%11)
+branch  0 taken 48 (fallthrough)
+branch  1 taken 952
+       48:   76:        printf("a mod 11 == b mod 11");
+call    0 returned 48
+branch  1 taken 48 (fallthrough)
+branch  2 taken 0 (throw)
+      952:   77:    else if (a%13 == b%13)
+branch  0 taken 46 (fallthrough)
+branch  1 taken 906
+       46:   78:        printf("a mod 13 == b mod 13");
+call    0 returned 46
+branch  1 taken 46 (fallthrough)
+branch  2 taken 0 (throw)
+      906:   79:    else if (a%17 == b%17)
+branch  0 taken 34 (fallthrough)
+branch  1 taken 872
+       34:   80:        printf("a mod 17 == b mod 17");
+call    0 returned 34
+branch  1 taken 34 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   81:    else
+      872:   82:        printf("No idea");
+call    0 returned 872
+branch  1 taken 872 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   83:
+     1000:   84:    return 0;
+        -:   85:}

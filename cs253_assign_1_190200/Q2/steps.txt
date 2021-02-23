@@ -1,0 +1,22 @@
+To run:
+1. chmod u+rx kill.sh script.sh
+2. ./script.sh
+3. ./kill.sh
+
+--------------------------------------------------------------------------
+STEPS FOR MAKING THE SCRIPTS
+
+For script.sh
+1. Made files a,b,c with text a,b,c repsectively for input
+2. Made script.sh, in which I first give read and execute permissions to the user for the three scripts provided, and then i run those three scripts by redirecting outputs of a,b,c to these scripts using < and running in the background using &
+3. Changed permissions of script.sh to u+rx to run
+
+For kill.sh
+1. Ran ps and stored the PIDS of the processes by the name of script.sh
+2. `ps --ppid ${PID_of_script.sh}` revealed names of all children of a given script.sh process. The timeout process was one of them.
+3. Read the manpages of kill, and found that passing a number n to kill as `kill -9 -$n` uses n as a parent group ID and kills all processes with that parent group ID. This is what is written in the manpage:  "Negative PID values may be used to choose whole process groups; see the PGID column in ps command output."
+4. Ran `ps -o pid,ppid,pgid,comm` and saw that all subprocesses of the same script.sh process had the same PGID, that of the timeout (which was the immediate child of script.sh)
+5. So, ran `ps --ppid ${PID_of_script.sh} -o pgid,comm` and stored the PGID of the timeout command as PGID variable.
+6. Ran `kill -9 -$PGID` to kill the group and finish the task.
+kill.sh uses steps 1,5,6 to kill the processes started by script.sh
+

@@ -1,0 +1,20 @@
+To run:
+q1-cs253.zip should be present in the directory with script.sh, as it will be automatically extracted
+1. chmod u+rx script.sh
+2. ./script.sh
+
+----------------------------------------------------------------------------
+STEPS FOLLOWED BY SCRIPT.SH
+
+1. unzip q1-cs253.zip to folder q1-cs253 and change directory to q1-cs253
+2. give read and execute permissions to 5688bc90-ab36-4a02-b192-d2426572bc93.gz and deploy.gz
+3. unzip both of these using gzip -d command
+
+4. Run 5688bc90-ab36-4a02-b192-d2426572bc93 by giving u+rx permission (it already should have them but for precaution) and grep package_name from it.
+
+5. Running this produces 2 directories, and we need to identify which one contains the date and which contains the server config.
+6. run `ls --group-directories-first` to get the list of files in the directory with the subdirectories in the beginning. As there are 2 folders, the first 2 will be the 2 folders we need.
+7. Give u+rx permissions to both these folders and deploy scripts.
+8. List the files of the first directory. If it has one file inside then it is the folder containing the date (dateFolder), otherwise it is the server config folder (serverFolder), and vice-a-versa for the other folder.
+
+9. With this information, run deploy with arguments in the order $dateFolder $pkgName $serverFolder 190200, sending the output using >> to submission-q1.txt in the previous directory.
