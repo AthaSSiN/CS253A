@@ -1,0 +1,8 @@
+cpp b.c -o b.i
+gcc -S b.i -o b.s
+as b.s -o b.o
+ld -lc b.o -o a.out
+
+or
+
+gcc -v --save-temp a.c -o a.out

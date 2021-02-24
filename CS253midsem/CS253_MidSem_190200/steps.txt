@@ -1,0 +1,32 @@
+TASK ONE:
+
+As all files are assembly files are assmebly files, each of them can be converted to ELF relocatables using gcc with -c flag, and then all the relocatables can be compiled into an LSB shared object.
+in the Makefile
+
+running make compiles and then links the assembly code.
+make clean removes all the generated .o files
+
+_____________________________________________________________________________
+
+TASK TWO:
+
+For task 2, the script find_password.sh has been used
+As we needed to replace two integers with alphabets, I iterated through all possible pairs of letters to get the password by brute force
+
+the file secret.zip is produced by this.
+password.txt contains the password.
+
+_____________________________________________________________________________
+
+TASK THREE:
+
+I was not able to extract the contents of secret.zip, as it was not a zip folder
+the output of the file command on secret.zip was:
+
+$ file secret.zip
+secret.zip: JPEG image data, JFIF standard 1.01, resolution (DPI), density 72x72, segment length 16, comment: "Created with GIMP", progressive, precision 8, 987x134, components 3
+
+As it was a JPEG file, I did :
+cp secret.zip secret.jpeg
+
+and viewed the produced image in my picture viewer, to see the hidden message.
