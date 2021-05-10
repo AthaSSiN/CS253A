@@ -116,3 +116,7 @@ build/*
 
 # Ignore binary directories
 bin/
+
+test/**
+googletest/**
+

@@ -1,0 +1,122 @@
+welcome to Provost's Python text reader
+You can use this text reader to read files (in your directory only)!
+You are not supposed to view other directories!!
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+1
+
+Enter path to file relative to your user directory: 
+.
+Contents of . folder are:
+
+safe.out
+vuln.out
+vuln.py
+alice.txt
+safe.py
+test.in
+script.sh
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+2
+
+Enter path to file relative to your user directory: 
+alice.txt
+Contents of alice.txt file are:
+
+Alice in wonderland is a very good book.
+I read it in grade 5.
+You should read it too!
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+1
+
+Enter path to file relative to your user directory: 
+../notallowed
+Contents of ../notallowed folder are:
+
+diary.txt
+password.txt
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+2
+
+Enter path to file relative to your user directory: 
+../notallowed/password.txt
+Contents of ../notallowed/password.txt file are:
+
+dontSEEmyPASSWORDDDDDDDDD
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+1
+
+Enter path to file relative to your user directory: 
+/
+Contents of / folder are:
+
+home
+srv
+etc
+opt
+root
+lib
+mnt
+usr
+media
+lib64
+sys
+dev
+sbin
+boot
+bin
+run
+lib32
+libx32
+init
+proc
+snap
+tmp
+var
+lost+found
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+1
+
+Enter path to file relative to your user directory: 
+....//
+Folder ....// not found
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+1
+
+Enter path to file relative to your user directory: 
+%2e%2e%2f
+Folder %2e%2e%2f not found
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+3
+This program is vulnerable as you could access any file in the server using it

@@ -1,0 +1,9 @@
+The dataset is saved as a csv in the data directory. However, it can be downloaded and parsed as a CSV again by running the get_and_process_datasets.py script in the data directory.
+
+To generate plots, run:
+python3 save_plots.py
+
+The plots are saved in the assets folder as png files.
+
+The LaTeX source file is cs253_assign_5_report.tex with the corresponding pdf cs253_assign_5_report.pdf
+

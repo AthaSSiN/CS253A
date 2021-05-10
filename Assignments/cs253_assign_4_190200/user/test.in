@@ -1,0 +1,15 @@
+1
+.
+2
+alice.txt
+1
+../notallowed
+2
+../notallowed/password.txt
+1
+/
+1
+....//
+1
+%2e%2e%2f
+3

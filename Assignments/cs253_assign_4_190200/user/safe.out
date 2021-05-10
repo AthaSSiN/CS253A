@@ -1,0 +1,113 @@
+welcome to Provost's Python text reader
+You can use this text reader to read files (in your directory only)!
+It is not possible to view other directories!!
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+1
+
+Enter path to file relative to your user directory: 
+.
+Contents of ./. folder are:
+
+safe.out
+vuln.out
+vuln.py
+alice.txt
+safe.py
+test.in
+script.sh
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+2
+
+Enter path to file relative to your user directory: 
+alice.txt
+Contents of ./alice.txt file are:
+
+Alice in wonderland is a very good book.
+I read it in grade 5.
+You should read it too!
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+1
+
+Enter path to file relative to your user directory: 
+../notallowed
+Cleaned path by regex: ./notallowed
+Folder ./notallowed not found
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+2
+
+Enter path to file relative to your user directory: 
+../notallowed/password.txt
+Cleaned path by regex: ./notallowed/password.txt
+File ./notallowed/password.txt not found
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+1
+
+Enter path to file relative to your user directory: 
+/
+Contents of .// folder are:
+
+safe.out
+vuln.out
+vuln.py
+alice.txt
+safe.py
+test.in
+script.sh
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+1
+
+Enter path to file relative to your user directory: 
+....//
+Cleaned path by regex: ./../
+But I am a smarter hack detector
+Cleaned path by me: ./
+Contents of ./ folder are:
+
+safe.out
+vuln.out
+vuln.py
+alice.txt
+safe.py
+test.in
+script.sh
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+1
+
+Enter path to file relative to your user directory: 
+%2e%2e%2f
+Folder ./%2e%2e%2f not found
+
+Enter 1 to list files in a directory
+Enter 2 to view files
+Anything else to quit:
+Enter Input: 
+3
+This program is safe for the server, no files outside the folder could be viewed!

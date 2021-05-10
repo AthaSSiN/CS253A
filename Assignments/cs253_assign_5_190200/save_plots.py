@@ -1,0 +1,80 @@
+# -*- coding: utf-8 -*-
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sb
+
+print("Load Data")
+min_df = pd.read_csv("data/footballer_stats.csv")
+print("Saving plots as pngs in the assets directory")
+
+sb.set_style('whitegrid')
+plt.figure(figsize=(10,8))
+# plt.grid()
+plt.plot( 'season_name', 'goals_scored', 'mo--', data=min_df[min_df['player'] == "Aguero"], markersize=6, label = 'Aguero')
+plt.plot( 'season_name', 'goals_scored', 'gs--', data=min_df[min_df['player'] == "Kane"],markersize=6, label = "Kane")
+plt.plot( 'season_name', 'goals_scored', 'r^-.', data=min_df[min_df['player'] == "Vardy"], markersize=10, linewidth = 2, label = "Vardy")
+plt.plot( 'season_name', 'goals_scored', 'c>--', data=min_df[min_df['player'] == "Sterling"], markersize=6, label = "Sterling")
+plt.plot( 'season_name', 'goals_scored', 'yh--', data=min_df[min_df['player'] == "Salah"], markersize=6, label = "Salah")
+plt.legend()
+plt.ylabel('Goals Scored', size = 15)
+plt.xlabel('Season', size = 15)
+plt.savefig("assets/goal_season_all.png")
+print("Plot 1 saved")
+
+sb.set_style('whitegrid')
+plt.figure(figsize=(6,8))
+
+plt.plot( 'season_name', 'start_cost', 'mo', data=min_df[min_df['player'] == "Vardy"], markersize=15, label = 'Starting Cost')
+plt.plot( 'season_name', 'end_cost', 'go', data=min_df[min_df['player'] == "Vardy"],markersize=10, label = "Ending Cost")
+plt.legend(loc = "upper left")
+plt.ylabel('Player Cost', size = 15)
+plt.xlabel('Season', size = 15)
+plt.savefig('assets/cost_season.png')
+print("Plot 2 saved")
+
+sb.set_style('whitegrid')
+plt.figure(figsize=(12, 6))
+# plt.grid()
+sb.barplot(x="season_name", hue="player", y="value", data=min_df)
+plt.xlabel('Season', size = 15)
+plt.ylabel('Player Value', size = 15)
+plt.legend()
+plt.savefig('assets/value_season_all.png')
+print("Plot 3 saved")
+
+sb.set_style('whitegrid')
+plt.figure(figsize=(10,6))
+plt.bar('season_name', 'goals_scored', data=min_df[min_df['player'] == "Vardy"], color='g', label = "Goals Scored", width = 0.5)
+plt.bar('season_name', 'assists', data=min_df[min_df['player'] == "Vardy"],bottom='goals_scored', color='orange', label = "Assists", width = 0.5)
+plt.ylabel('Total Goal Involvements', size = 15)
+plt.xlabel('Season', size = 15)
+plt.legend()
+plt.savefig('assets/goalinvolv_season.png')
+print("Plot 4 saved")
+
+sb.set_style('whitegrid')
+fig = plt.figure(figsize=(10,6))
+
+ax = fig.add_axes([0.1,0.1,0.8,0.8])
+# ax.grid(axis = 'y')
+ax.bar('season_name', 'gpm', data=min_df[min_df['player'] == "Vardy"], color='y', label = "Goals Per Game", width = 0.5)
+ax.set_ylabel('Goals per 90 minutes', size = 15)
+ax.set_xlabel('Season', size = 15)
+ax.legend(loc = 'upper left')
+ax2 = ax.twinx()
+ax2.plot('season_name', 'minutes', 'ro--', data=min_df[min_df['player'] == "Vardy"], markersize=6, label = "Minutes played")
+ax2.set_ylabel("Minutes Played", size = 15)
+ax2.legend(loc = 'upper right')
+plt.savefig('assets/gpm_season.png')
+print("Plot 5 saved")
+
+fig = plt.figure(figsize=(5,5))
+sb.set_style('whitegrid')
+min_df['total_points'] = min_df['total_points'].astype(int)
+plt.pie(min_df[min_df['player'] == "Vardy"]['total_points'], labels = min_df[min_df['player'] == "Vardy"]['season_name'], autopct='%1.1f%%' , startangle=90)
+plt.xlabel("Total points =" + str(np.sum(min_df[min_df['player'] == 'Vardy']['total_points'])), size = 15)
+plt.savefig('assets/points_season.png')
+print("Plot 6 saved")
+print("All plots saved")
